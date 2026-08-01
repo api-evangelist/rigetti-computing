@@ -1,0 +1,25 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Rigetti QCS API
+  version: 1.0.0
+extends: openapi/rigetti-computing-qcs-openapi-original.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: rigetti-computing
+    x-apievangelist-auth: oauth2-okta-jwt-bearer
+    x-apievangelist-pagination: google-aip-158-pagetoken
+    x-apievangelist-error-envelope: '{code, message, requestId, validationErrors}'
+    x-apievangelist-artifacts:
+      authentication: authentication/rigetti-computing-authentication.yml
+      conventions: conventions/rigetti-computing-conventions.yml
+      errors: errors/rigetti-computing-problem-types.yml
+      data_model: data-model/rigetti-computing-data-model.yml
+      lifecycle: lifecycle/rigetti-computing-lifecycle.yml
+- target: $.info
+  update:
+    x-apievangelist-categories:
+    - Quantum Computing
+    - Quantum Cloud
+    - Reservations
+    - Billing

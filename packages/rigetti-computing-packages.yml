@@ -1,0 +1,76 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/rigetti + PyPI + crates.io
+packages:
+- language: python
+  registry: pypi
+  name: pyquil
+  url: https://pypi.org/project/pyquil/
+  install: pip install pyquil
+  version: 4.17.0
+  repo: https://github.com/rigetti/pyquil
+  official: true
+  description: Python library for building and executing Quil quantum programs on QVM and Rigetti QPUs via QCS.
+- language: python
+  registry: pypi
+  name: qcs-api-client
+  url: https://pypi.org/project/qcs-api-client/
+  install: pip install qcs-api-client
+  version: 0.26.5
+  repo: https://github.com/rigetti/qcs-api-client-python
+  official: true
+  description: Python client for the Rigetti QCS HTTP API (generated from the QCS OpenAPI), with credential/token handling.
+- language: python
+  registry: pypi
+  name: qcs-sdk-python
+  url: https://pypi.org/project/qcs-sdk-python/
+  install: pip install qcs-sdk-python
+  version: 0.26.3
+  repo: https://github.com/rigetti/qcs-sdk-rust
+  official: true
+  description: Python bindings for the Rust QCS SDK (program submission and execution against QCS).
+- language: python
+  registry: pypi
+  name: quil
+  url: https://pypi.org/project/quil/
+  install: pip install quil
+  version: 0.36.0
+  repo: https://github.com/rigetti/quil-rs
+  official: true
+  description: Python bindings for quil-rs, the Quil parser and program builder.
+- language: python
+  registry: pypi
+  name: qiskit-rigetti
+  url: https://pypi.org/project/qiskit-rigetti/
+  install: pip install qiskit-rigetti
+  version: 0.4.7
+  repo: https://github.com/rigetti/qiskit-rigetti
+  official: true
+  description: Qiskit provider for running circuits on Rigetti hardware and simulators.
+- language: rust
+  registry: crates.io
+  name: qcs
+  url: https://crates.io/crates/qcs
+  install: cargo add qcs
+  version: 0.26.3
+  repo: https://github.com/rigetti/qcs-sdk-rust
+  official: true
+  description: Rust SDK for accessing Rigetti Quantum Cloud Services.
+- language: rust
+  registry: crates.io
+  name: qcs-api-client-openapi
+  url: https://crates.io/crates/qcs-api-client-openapi
+  install: cargo add qcs-api-client-openapi
+  version: 0.19.3
+  repo: https://github.com/rigetti/qcs-api-client-rust
+  official: true
+  description: OpenAPI-generated Rust client for the QCS HTTP API (source of the QCS OpenAPI schema).
+- language: rust
+  registry: crates.io
+  name: quil-rs
+  url: https://crates.io/crates/quil-rs
+  install: cargo add quil-rs
+  version: 0.36.0
+  repo: https://github.com/rigetti/quil-rs
+  official: true
+  description: Quil parser and quantum program builder in Rust.

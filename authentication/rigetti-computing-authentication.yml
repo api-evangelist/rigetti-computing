@@ -1,0 +1,26 @@
+generated: '2026-07-21'
+method: searched
+source: openapi/rigetti-computing-qcs-openapi-original.yml
+docs: https://qcs.rigetti.com/auth/token
+model:
+  protocol: oauth2
+  identity_provider: Okta
+  token_format: JWT
+  token_lifetime: 24h
+  authorize: "Download an access token from https://qcs.rigetti.com/auth/token; use the access_token value (not the whole JSON) as Authorization: Bearer <jwt>."
+  request_access: https://www.rigetti.com/get-quantum
+  legacy_note: "The same account/token works against the legacy Forest API at https://forest-server.qcs.rigetti.com."
+summary:
+  types:
+  - http
+schemes:
+- name: JWTBearer
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: A JSON web token with `sub` or `uid` claim, as well as `groups` claim. If the
+    token is absent, invalid or expired, the client will receive a 401 response. If the token
+    is valid, the server uses the claims to authorize the request, which may result in a 403
+    response.
+  sources:
+  - openapi/rigetti-computing-qcs-openapi-original.yml

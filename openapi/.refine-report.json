@@ -1,0 +1,30 @@
+{
+  "provider": "rigetti-computing",
+  "sources": [
+    "rigetti-computing-account-api-openapi.yml",
+    "rigetti-computing-authentication-api-openapi.yml",
+    "rigetti-computing-clientapplications-api-openapi.yml",
+    "rigetti-computing-endpoints-api-openapi.yml",
+    "rigetti-computing-engagements-api-openapi.yml",
+    "rigetti-computing-healthcheck-api-openapi.yml",
+    "rigetti-computing-quantumprocessors-api-openapi.yml",
+    "rigetti-computing-reservations-api-openapi.yml",
+    "rigetti-computing-rigetti-qcs-api-api-openapi.yml"
+  ],
+  "outputs": [
+    "rigetti-computing-account-api-openapi.yml",
+    "rigetti-computing-authentication-api-openapi.yml",
+    "rigetti-computing-clientapplications-api-openapi.yml",
+    "rigetti-computing-endpoints-api-openapi.yml",
+    "rigetti-computing-engagements-api-openapi.yml",
+    "rigetti-computing-healthcheck-api-openapi.yml",
+    "rigetti-computing-quantumprocessors-api-openapi.yml",
+    "rigetti-computing-reservations-api-openapi.yml",
+    "rigetti-computing-rigetti-qcs-api-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

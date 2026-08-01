@@ -1,0 +1,56 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/rigetti-computing-qcs-openapi-original.yml
+format: custom
+envelope:
+  content_type: application/json
+  schema: '#/components/schemas/Error'
+  fields:
+    code: machine-readable error code
+    message: human-readable message
+    requestId: server request id for support correlation
+    validationErrors: array of {in, path, message} field-level errors (422)
+note: QCS returns a custom Error envelope, not RFC 9457 problem+json. 422 responses carry field-level
+  validationErrors.
+problems:
+- status: 400
+  title: Bad Request
+  description: Bad Request
+  remediation: Fix the malformed request.
+  occurrences: 2
+- status: 401
+  title: Unauthorized
+  description: Request authentication failed.
+  remediation: 'Obtain a fresh OAuth2/Okta JWT access token (valid 24h) and send it as Authorization:
+    Bearer.'
+  occurrences: 13
+- status: 402
+  title: Payment Required
+  description: Insufficient payment to book reservation.
+  remediation: Ensure the group/user account has sufficient balance to book the reservation.
+  occurrences: 1
+- status: 403
+  title: Forbidden
+  description: Forbidden
+  remediation: Confirm the authenticated account has permission for this resource/group.
+  occurrences: 19
+- status: 404
+  title: Not Found
+  description: Not Found
+  remediation: Verify the resource id exists and is visible to your account.
+  occurrences: 30
+- status: 409
+  title: Conflict
+  description: The requested reservation is unavailable.
+  remediation: The reservation slot is unavailable; choose another available slot.
+  occurrences: 1
+- status: 422
+  title: Unprocessable Entity
+  description: Unprocessable Entity
+  remediation: Correct the field-level validationErrors returned in the response body.
+  occurrences: 31
+- status: 503
+  title: Service Unavailable
+  description: Endpoint is temporarily unavailable, try again later.
+  remediation: Endpoint temporarily unavailable; retry later with backoff.
+  occurrences: 1

@@ -1,0 +1,106 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/rigetti-computing-qcs-openapi-original.yml
+note: Entity-relationship graph derived from QCS OpenAPI schemas and id-reference fields.
+entities:
+- name: QuantumProcessor
+  fields:
+  - id
+- name: InstructionSetArchitecture
+  fields:
+  - name
+  - architecture
+  - instructions
+  - benchmarks
+- name: Endpoint
+  fields:
+  - address
+  - addresses
+  - datacenter
+  - healthy
+  - id
+  - mock
+  - quantumProcessorIds
+- name: Reservation
+  fields:
+  - accountId
+  - accountType
+  - cancellationBillingInvoiceItemId
+  - cancelled
+  - createdByAccountId
+  - createdByAccountType
+  - createdTime
+  - creationBillingInvoiceItemId
+  - endTime
+  - id
+  - notes
+  - price
+  - quantumProcessorId
+  - startTime
+  - updatedTime
+- name: Group
+  fields:
+  - createdTime
+  - description
+  - id
+  - lastMembershipUpdatedTime
+  - name
+  - updatedTime
+- name: User
+  fields:
+  - createdTime
+  - id
+  - idpId
+  - profile
+- name: ClientApplication
+  fields:
+  - detailsUri
+  - latestVersion
+  - links
+  - minimumVersion
+  - name
+  - supported
+- name: AccountBalance
+  fields:
+  - balance
+- name: Announcement
+  fields:
+  - id
+  - contentHtml
+  - createdAt
+  - active
+- name: UserProfile
+  fields:
+  - email
+  - firstName
+  - lastName
+  - organization
+relationships:
+- from: Endpoint
+  to: QuantumProcessor
+  type: has_many
+  via: quantumProcessorIds
+- from: Reservation
+  to: User
+  type: belongs_to
+  via: accountId
+- from: Reservation
+  to: User
+  type: belongs_to
+  via: createdByAccountId
+- from: Reservation
+  to: QuantumProcessor
+  type: belongs_to
+  via: quantumProcessorId
+- from: Reservation
+  to: User
+  type: belongs_to
+  via: userId
+- from: QuantumProcessor
+  to: InstructionSetArchitecture
+  type: has_one
+  via: instructionSetArchitecture
+- from: Group
+  to: User
+  type: has_many
+  via: users

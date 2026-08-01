@@ -1,0 +1,274 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: openapi/rigetti-computing-qcs-openapi-original.yml
+note: Candidate MCP tool surface derived one-per-operation from the QCS OpenAPI. No official Rigetti-hosted
+  MCP server was found as of this pass.
+server:
+  name: rigetti-qcs
+  transport: stdio
+  auth: OAuth2 (Okta) JWT bearer
+tools:
+- name: GetHealth
+  description: Retrieve the health status of the API
+  method: GET
+  path: /
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#GetHealth
+- name: HealthCheckDeprecated
+  description: Health Check
+  method: GET
+  path: /v1/
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#HealthCheckDeprecated
+- name: ListEndpoints
+  description: List Endpoints
+  method: GET
+  path: /v1/endpoints
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#ListEndpoints
+- name: CreateEndpoint
+  description: Create Endpoint
+  method: POST
+  path: /v1/endpoints
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#CreateEndpoint
+- name: DeleteEndpoint
+  description: Delete Endpoint
+  method: DELETE
+  path: /v1/endpoints/{endpointId}
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#DeleteEndpoint
+- name: GetEndpoint
+  description: Get Endpoint
+  method: GET
+  path: /v1/endpoints/{endpointId}
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#GetEndpoint
+- name: RestartEndpoint
+  description: Restart Endpoint
+  method: POST
+  path: /v1/endpoints/{endpointId}:restart
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#RestartEndpoint
+- name: CreateEngagement
+  description: Create Engagement
+  method: POST
+  path: /v1/engagements
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#CreateEngagement
+- name: GetDefaultEndpoint
+  description: Get Default Endpoint
+  method: GET
+  path: /v1/quantumProcessors/{quantumProcessorId}/endpoints:getDefault
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#GetDefaultEndpoint
+- name: GetQuantumProcessor
+  description: Get Quantum Processor
+  method: GET
+  path: /v1/quantumProcessors/{quantum_processor_id}
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#GetQuantumProcessor
+- name: ListQuantumProcessors
+  description: List Quantum Processors
+  method: GET
+  path: /v1/quantumProcessors
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#ListQuantumProcessors
+- name: GetQuantumProcessorAccessors
+  description: Get Quantum Processor Accessors
+  method: GET
+  path: /v1/quantumProcessors/{quantum_processor_id}/accessors
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#GetQuantumProcessorAccessors
+- name: GetInstructionSetArchitecture
+  description: Get Instruction Set Architecture
+  method: GET
+  path: /v1/quantumProcessors/{quantum_processor_id}/instructionSetArchitecture
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#GetInstructionSetArchitecture
+- name: ListInstructionSetArchitectures
+  description: List Instruction Set Architectures
+  method: GET
+  path: /v1/instructionSetArchitectures
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#ListInstructionSetArchitectures
+- name: HealthCheck
+  description: Health Check
+  method: GET
+  path: /v1/healthcheck
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#HealthCheck
+- name: AuthEmailPasswordResetToken
+  description: Email Password Reset Token
+  method: POST
+  path: /v1/auth:emailPasswordResetToken
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#AuthEmailPasswordResetToken
+- name: AuthGetUser
+  description: Get User
+  method: GET
+  path: /v1/auth:getUser
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#AuthGetUser
+- name: AuthResetPassword
+  description: Reset Password
+  method: POST
+  path: /v1/auth:resetPassword
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#AuthResetPassword
+- name: AuthResetPasswordWithToken
+  description: Reset Password With Token
+  method: POST
+  path: /v1/auth:resetPasswordWithToken
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#AuthResetPasswordWithToken
+- name: GetQuantumProcessorCalendar
+  description: Get Quantum Processor Calendar
+  method: GET
+  path: /v1/calendars/{quantumProcessorId}
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#GetQuantumProcessorCalendar
+- name: ListClientApplications
+  description: List Client Applications
+  method: GET
+  path: /v1/clientApplications
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#ListClientApplications
+- name: GetClientApplication
+  description: Get Client Application
+  method: GET
+  path: /v1/clientApplications/{clientApplicationName}
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#GetClientApplication
+- name: CheckClientApplication
+  description: Check Client Application
+  method: POST
+  path: /v1/clientApplications:check
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#CheckClientApplication
+- name: GetGroupBalance
+  description: Get Group Balance
+  method: GET
+  path: /v1/groups/{groupName}/balance
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#GetGroupBalance
+- name: GetGroupBillingCustomer
+  description: Retrieve billing customer for a QCS group account.
+  method: GET
+  path: /v1/groups/{groupName}/billingCustomer
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#GetGroupBillingCustomer
+- name: ListGroupBillingInvoices
+  description: Retrieve billing invoices for a QCS group account.
+  method: GET
+  path: /v1/groups/{groupName}/billingInvoices
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#ListGroupBillingInvoices
+- name: ListGroupBillingInvoiceLines
+  description: Retrieve billing invoice lines for a QCS group account's invoice.
+  method: GET
+  path: /v1/groups/{groupName}/billingInvoices/{billingInvoiceId}/lines
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#ListGroupBillingInvoiceLines
+- name: GetGroupUpcomingBillingInvoice
+  description: Retrieve upcoming invoice for QCS group billing customer.
+  method: GET
+  path: /v1/groups/{groupName}/billingInvoices:getUpcoming
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#GetGroupUpcomingBillingInvoice
+- name: ListGroupUpcomingBillingInvoiceLines
+  description: List invoice lines for QCS group billing customer upcoming invoice.
+  method: GET
+  path: /v1/groups/{groupName}/billingInvoices:listUpcomingLines
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#ListGroupUpcomingBillingInvoiceLines
+- name: ListGroupReservations
+  description: List Group Reservations
+  method: GET
+  path: /v1/groups/{groupName}/reservations
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#ListGroupReservations
+- name: ListGroupUsers
+  description: List users belonging to a group
+  method: GET
+  path: /v1/groups/{groupName}/users
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#ListGroupUsers
+- name: AddGroupUser
+  description: Add user to a group
+  method: POST
+  path: /v1/groups:addUser
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#AddGroupUser
+- name: RemoveGroupUser
+  description: Remove user from a group.
+  method: POST
+  path: /v1/groups:removeUser
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#RemoveGroupUser
+- name: ListReservations
+  description: List Reservations
+  method: GET
+  path: /v1/reservations
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#ListReservations
+- name: CreateReservation
+  description: Create Reservation
+  method: POST
+  path: /v1/reservations
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#CreateReservation
+- name: GetReservation
+  description: Get Reservation
+  method: GET
+  path: /v1/reservations/{reservationId}
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#GetReservation
+- name: DeleteReservation
+  description: Delete Reservation
+  method: DELETE
+  path: /v1/reservations/{reservationId}
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#DeleteReservation
+- name: FindAvailableReservations
+  description: Find Available Reservations
+  method: GET
+  path: /v1/reservations:findAvailable
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#FindAvailableReservations
+- name: GetUserBalance
+  description: Get User Balance
+  method: GET
+  path: /v1/users/{userId}/balance
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#GetUserBalance
+- name: GetUserBillingCustomer
+  description: Retrieve billing customer for a QCS user account.
+  method: GET
+  path: /v1/users/{userId}/billingCustomer
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#GetUserBillingCustomer
+- name: ListUserBillingInvoices
+  description: Retrieve billing invoices for a QCS user account.
+  method: GET
+  path: /v1/users/{userId}/billingInvoices
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#ListUserBillingInvoices
+- name: ListUserBillingInvoiceLines
+  description: Retrieve billing invoice lines for a QCS user account's invoice.
+  method: GET
+  path: /v1/users/{userId}/billingInvoices/{billingInvoiceId}/lines
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#ListUserBillingInvoiceLines
+- name: GetUserUpcomingBillingInvoice
+  description: Retrieve upcoming invoice for QCS user billing customer.
+  method: GET
+  path: /v1/users/{userId}/billingInvoices:getUpcoming
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#GetUserUpcomingBillingInvoice
+- name: ListUserUpcomingBillingInvoiceLines
+  description: List invoice lines for QCS user billing customer upcoming invoice.
+  method: GET
+  path: /v1/users/{userId}/billingInvoices:listUpcomingLines
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#ListUserUpcomingBillingInvoiceLines
+- name: GetUserEventBillingPrice
+  description: Retrieve `EventBillingPrice` for a user for a specific event. If no price is configured
+    this operation will return a default `EventBillingPr
+  method: POST
+  path: /v1/users/{userId}/eventBillingPrices:get
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#GetUserEventBillingPrice
+- name: ListUserGroups
+  description: List QCS groups for the requested user
+  method: GET
+  path: /v1/users/{userId}/groups
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#ListUserGroups
+- name: ActivateUser
+  description: Activate User
+  method: POST
+  path: /v1/users:activate
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#ActivateUser
+- name: ListViewerAnnouncements
+  description: List all announcements relevant to the authenticating user. By default, does not include
+    dismissed announcements.
+  method: GET
+  path: /v1/viewer/announcements
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#ListViewerAnnouncements
+- name: DismissViewerAnnouncement
+  description: Dismiss an announcement for an authenticating user, indicating that they do not want to
+    see it again.
+  method: DELETE
+  path: /v1/viewer/announcements/{announcementId}
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#DismissViewerAnnouncement
+- name: UpdateViewerUserProfile
+  description: Update the profile of the authenticated user.
+  method: PUT
+  path: /v1/viewer/userProfile
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#UpdateViewerUserProfile
+- name: GetViewerUserOnboardingCompleted
+  description: Get the onboarding status of the authenticated user.
+  method: GET
+  path: /v1/viewer/onboardingCompleted
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#GetViewerUserOnboardingCompleted
+- name: PutViewerUserOnboardingCompleted
+  description: Update the onboarding status of the authenticated user.
+  method: PUT
+  path: /v1/viewer/onboardingCompleted
+  source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#PutViewerUserOnboardingCompleted

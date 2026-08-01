@@ -1,0 +1,16 @@
+generated: '2026-07-21'
+method: generated
+source: openapi/rigetti-computing-qcs-openapi-original.yml
+skills:
+- file: rigetti-computing-reserve-qpu-time.md
+  name: Reserve Rigetti QPU time
+  api: openapi/rigetti-computing-qcs-openapi-original.yml
+  operations: [ListQuantumProcessors, GetQuantumProcessor, FindAvailableReservations, CreateReservation, GetReservation, DeleteReservation]
+- file: rigetti-computing-discover-processor-isa.md
+  name: Discover a Rigetti processor and its ISA
+  api: openapi/rigetti-computing-qcs-openapi-original.yml
+  operations: [ListQuantumProcessors, GetQuantumProcessor, GetInstructionSetArchitecture, ListInstructionSetArchitectures, GetQuantumProcessorAccessors]
+- file: rigetti-computing-engage-endpoint.md
+  name: Engage a Rigetti endpoint to execute programs
+  api: openapi/rigetti-computing-qcs-openapi-original.yml
+  operations: [ListEndpoints, GetDefaultEndpoint, GetEndpoint, CreateEndpoint, CreateEngagement, RestartEndpoint]

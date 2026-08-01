@@ -1,0 +1,19 @@
+generated: '2026-07-21'
+method: probed
+source: live probes of https://api.qcs.rigetti.com/.well-known/*
+host: https://api.qcs.rigetti.com
+documents:
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/openid-configuration
+  status: 404
+- path: /.well-known/oauth-authorization-server
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404
+notes: >-
+  No well-known discovery documents are served from the QCS API host. QCS uses
+  OAuth2 delegated to Okta, so OIDC discovery lives on Rigetti's Okta tenant
+  rather than api.qcs.rigetti.com. No SecurityTxt or api-catalog published.

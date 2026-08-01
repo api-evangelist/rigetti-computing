@@ -1,0 +1,41 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/rigetti-computing-qcs-openapi-original.yml + info.description
+authentication:
+  style: oauth2-bearer
+  scheme: JWTBearer
+  detail: "OAuth2 via Okta. Download a 24h access token from https://qcs.rigetti.com/auth/token and send the access_token value as `Authorization: Bearer <jwt>`."
+  ref: authentication/rigetti-computing-authentication.yml
+idempotency:
+  supported: false
+  note: "No Idempotency-Key header or idempotency contract is documented in the QCS OpenAPI."
+pagination:
+  style: page-token
+  standard: google-aip-158
+  request_params:
+    page_size: pageSize
+    page_token: pageToken
+    filter: filter
+  response_fields:
+    next_page_token: nextPageToken
+custom_methods:
+  style: colon-suffix
+  standard: google-aip-136
+  examples:
+  - /v1/endpoints/{endpointId}:restart
+  - /v1/clientApplications:check
+  - /v1/reservations:findAvailable
+  - /v1/groups:addUser
+request_tracing:
+  request_id_field: requestId
+  location: error response body
+  note: "Server request id is returned on error envelopes for support correlation; no documented request-id request header."
+versioning:
+  style: uri-path
+  ref: lifecycle/rigetti-computing-lifecycle.yml
+error_envelope:
+  content_type: application/json
+  shape: '{code, message, requestId, validationErrors[]}'
+  ref: errors/rigetti-computing-problem-types.yml
+rate_limit_signaling:
+  documented: false

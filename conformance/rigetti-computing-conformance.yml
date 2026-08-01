@@ -1,0 +1,36 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/rigetti-computing-qcs-openapi-original.yml + info.description
+standards:
+- id: oauth2
+  conforms: true
+  evidence: "info.description states all QCS API access requires OAuth2 authentication provided by Okta; JWT bearer tokens on Authorization header."
+- id: oidc
+  conforms: true
+  evidence: "OAuth2 identity provider is Okta (OpenID Connect); tokens are JWTs."
+- id: google-aip
+  conforms: true
+  evidence: "info.description: adheres to Google API Improvement Proposals (AIP); custom-method colon syntax (:restart, :check, :findAvailable), pageSize/pageToken pagination, resource-oriented paths."
+- id: rest
+  conforms: true
+  evidence: "REST design principles where appropriate, otherwise HTTP-RPC; standard HTTP response codes."
+- id: aip-158-pagination
+  conforms: true
+  evidence: "List operations expose pageSize + pageToken query params and return nextPageToken."
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: "Errors use a custom JSON envelope {code, message, requestId, validationErrors}, not application/problem+json."
+- id: rfc8594-sunset
+  conforms: false
+  evidence: "No Sunset/Deprecation header contract documented; only a deprecated healthcheck operation and a legacy API endpoint."
+- id: idempotency-keys
+  conforms: false
+  evidence: "No Idempotency-Key header or idempotency contract documented in the spec."
+- id: fhir
+  conforms: false
+- id: fapi
+  conforms: false
+- id: scim
+  conforms: false
+- id: odata
+  conforms: false

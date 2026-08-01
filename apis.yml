@@ -1,8 +1,17 @@
 aid: rigetti-computing
 name: Rigetti Computing
-description: Rigetti Computing is a company surfaced as a portfolio company of dcvc, y-combinator and
-  added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Rigetti Computing is a full-stack quantum computing company that builds
+  superconducting quantum processors and delivers access to them through
+  Quantum Cloud Services (QCS). Developers program Rigetti quantum processing
+  units (QPUs) with the Quil quantum instruction language via the open-source
+  pyQuil SDK, compile with quilc, and simulate locally with the Quantum Virtual
+  Machine (QVM). The QCS HTTP API (api.qcs.rigetti.com) exposes REST-style
+  operations for quantum processors, instruction set architectures, engagements,
+  endpoints, reservations, groups, billing, and account management, secured with
+  OAuth2 (Okta) JWT bearer tokens. This profile was seeded as a VC-portfolio
+  lead and enriched by the API Evangelist pipeline from Rigetti's public QCS
+  OpenAPI, SDKs, and developer documentation.
 url: https://raw.githubusercontent.com/api-evangelist/rigetti-computing/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,14 +20,182 @@ x-backed-by:
 - y-combinator
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 16
+  pass: local-v1
+image: https://qcs.rigetti.com/static/img/rigetti-logo.svg
 tags:
 - Company
-apis: []
+- Quantum Computing
+- Quantum Cloud
+- Developer Tools
+- SDKs
+- Superconducting Qubits
+- Scientific Computing
+- Deep Tech
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: rigetti-computing:rigetti-computing-account-api
+  name: Rigetti Computing account API
+  description: The account API from Rigetti Computing — 22 operation(s) for account.
+  humanURL: https://docs.rigetti.com/qcs
+  baseURL: https://api.qcs.rigetti.com
+  tags:
+  - account
+  properties:
+  - type: OpenAPI
+    url: openapi/rigetti-computing-account-api-openapi.yml
+- aid: rigetti-computing:rigetti-computing-authentication-api
+  name: Rigetti Computing authentication API
+  description: The authentication API from Rigetti Computing — 4 operation(s) for authentication.
+  humanURL: https://docs.rigetti.com/qcs
+  baseURL: https://api.qcs.rigetti.com
+  tags:
+  - authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/rigetti-computing-authentication-api-openapi.yml
+- aid: rigetti-computing:rigetti-computing-clientapplications-api
+  name: Rigetti Computing clientApplications API
+  description: Check for the latest SDK versions.
+  humanURL: https://docs.rigetti.com/qcs
+  baseURL: https://api.qcs.rigetti.com
+  tags:
+  - clientApplications
+  properties:
+  - type: OpenAPI
+    url: openapi/rigetti-computing-clientapplications-api-openapi.yml
+- aid: rigetti-computing:rigetti-computing-endpoints-api
+  name: Rigetti Computing endpoints API
+  description: The Endpoint is the means of access to a Quantum Processor.
+  humanURL: https://docs.rigetti.com/qcs
+  baseURL: https://api.qcs.rigetti.com
+  tags:
+  - endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/rigetti-computing-endpoints-api-openapi.yml
+- aid: rigetti-computing:rigetti-computing-engagements-api
+  name: Rigetti Computing engagements API
+  description: The Engagement is the authorization mechanism for access to the Quantum Processor.
+  humanURL: https://docs.rigetti.com/qcs
+  baseURL: https://api.qcs.rigetti.com
+  tags:
+  - engagements
+  properties:
+  - type: OpenAPI
+    url: openapi/rigetti-computing-engagements-api-openapi.yml
+- aid: rigetti-computing:rigetti-computing-healthcheck-api
+  name: Rigetti Computing Healthcheck API
+  description: The Healthcheck API from Rigetti Computing — 1 operation(s) for healthcheck.
+  humanURL: https://docs.rigetti.com/qcs
+  baseURL: https://api.qcs.rigetti.com
+  tags:
+  - Healthcheck
+  properties:
+  - type: OpenAPI
+    url: openapi/rigetti-computing-healthcheck-api-openapi.yml
+- aid: rigetti-computing:rigetti-computing-quantumprocessors-api
+  name: Rigetti Computing quantumProcessors API
+  description: The Quantum Processor is the heart of the Rigetti services.
+  humanURL: https://docs.rigetti.com/qcs
+  baseURL: https://api.qcs.rigetti.com
+  tags:
+  - quantumProcessors
+  properties:
+  - type: OpenAPI
+    url: openapi/rigetti-computing-quantumprocessors-api-openapi.yml
+- aid: rigetti-computing:rigetti-computing-reservations-api
+  name: Rigetti Computing reservations API
+  description: Find existing time on a Rigetti QPU and reserve it.
+  humanURL: https://docs.rigetti.com/qcs
+  baseURL: https://api.qcs.rigetti.com
+  tags:
+  - reservations
+  properties:
+  - type: OpenAPI
+    url: openapi/rigetti-computing-reservations-api-openapi.yml
+- aid: rigetti-computing:rigetti-computing-rigetti-qcs-api-api
+  name: Rigetti Computing Rigetti QCS API API
+  description: The Rigetti QCS API API from Rigetti Computing — 2 operation(s) for rigetti qcs api.
+  humanURL: https://docs.rigetti.com/qcs
+  baseURL: https://api.qcs.rigetti.com
+  tags:
+  - Rigetti QCS API
+  properties:
+  - type: OpenAPI
+    url: openapi/rigetti-computing-rigetti-qcs-api-api-openapi.yml
+common:
+- type: AgenticAccess
+  url: agentic-access/rigetti-computing-agentic-access.yml
+- type: DomainSecurity
+  url: security/rigetti-computing-domain-security.yml
+- type: Authentication
+  url: authentication/rigetti-computing-authentication.yml
+- type: Packages
+  url: packages/rigetti-computing-packages.yml
+- type: SDKs
+  url: packages/rigetti-computing-packages.yml
+- type: MCPServer
+  url: mcp/rigetti-computing-mcp.yml
+- type: LLMsTxt
+  url: llms/rigetti-computing-llms.txt
+- type: Overlay
+  url: overlays/rigetti-computing-qcs-overlay.yaml
+- type: Conformance
+  url: conformance/rigetti-computing-conformance.yml
+- type: ErrorCatalog
+  url: errors/rigetti-computing-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/rigetti-computing-lifecycle.yml
+- type: Conventions
+  url: conventions/rigetti-computing-conventions.yml
+- type: DataModel
+  url: data-model/rigetti-computing-data-model.yml
+- type: Sandbox
+  url: sandbox/rigetti-computing-sandbox.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Website
+  url: https://www.rigetti.com/
+- type: DeveloperPortal
+  url: https://qcs.rigetti.com/
+- type: Documentation
+  url: https://docs.rigetti.com/
+- type: APIReference
+  url: https://docs.rigetti.com/qcs
+- type: GettingStarted
+  url: https://pyquil-docs.rigetti.com/
+- type: GitHubOrganization
+  url: https://github.com/rigetti
+- type: Support
+  url: https://rigetti.zendesk.com
+- type: Blog
+  url: https://www.rigetti.com/rigetti-computing-news
+- type: SignUp
+  url: https://www.rigetti.com/get-quantum
+- type: TermsOfService
+  url: https://www.rigetti.com/uploads/Global/Rigetti-Terms-of-Service-2022.pdf
+- type: PrivacyPolicy
+  url: https://www.rigetti.com/privacy-policy

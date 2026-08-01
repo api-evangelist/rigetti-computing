@@ -1,0 +1,26 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/rigetti-computing-qcs-openapi-original.yml + info.description
+versioning:
+  scheme: uri-path
+  current: v1
+  api_version_label: '2020-07-31'
+  note: "Paths are prefixed /v1/; the OpenAPI info.version is a date label (2020-07-31)."
+deprecation:
+  policy_url: null
+  sunset_header: false
+  deprecated_operations:
+  - openapi/rigetti-computing-qcs-openapi-original.yml#HealthCheckDeprecated
+  legacy_api:
+    url: https://forest-server.qcs.rigetti.com
+    status: legacy
+    note: "The legacy Forest HTTP API remains accessible and shares a source of truth with QCS; Rigetti recommends migrating to the QCS API. Direct QPU access is performed over ZeroMQ/rpcq, not this HTTP API."
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+note: >-
+  No public status page, formal deprecation policy, or RFC 8594 Sunset header
+  contract was found. A single operation (HealthCheckDeprecated at /v1/) is
+  marked deprecated in favor of /v1/healthcheck, and a legacy Forest API is
+  documented as the migration source.

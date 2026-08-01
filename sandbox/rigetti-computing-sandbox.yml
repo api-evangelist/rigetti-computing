@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: searched
+source: openapi/rigetti-computing-qcs-openapi-original.yml + https://pyquil-docs.rigetti.com/
+note: >-
+  Rigetti's developer "sandbox" is simulation-first rather than a keyed
+  test/live split. Programs are validated and run locally against the Quantum
+  Virtual Machine (QVM) before consuming real QPU time, and the QCS API exposes
+  mock endpoints. No test API keys or magic test tokens are published; the same
+  OAuth2 (Okta) credentials are used for all environments.
+simulators:
+- name: Quantum Virtual Machine (QVM)
+  kind: local-simulator
+  via: pyquil
+  description: "Local quantum simulator for developing and testing Quil programs without a real QPU. Run `qvm -S` (server mode) and target it from pyQuil via get_qc('Nq-qvm')."
+  docs: https://pyquil-docs.rigetti.com/
+- name: quilc
+  kind: local-compiler
+  description: "Local Quil compiler used alongside the QVM to compile programs to a target ISA."
+mock_endpoints:
+  field: mock
+  schema: '#/components/schemas/Endpoint'
+  description: "The QCS Endpoint resource carries a boolean `mock` flag; mock endpoints allow exercising the engagement/execution flow without a live QPU datacenter."
+test_credentials:
+  published: false
+  note: "No dedicated sandbox/test keys. Access tokens (24h, from https://qcs.rigetti.com/auth/token) are used for every environment."

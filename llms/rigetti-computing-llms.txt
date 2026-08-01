@@ -1,0 +1,35 @@
+# Rigetti Computing
+
+> Rigetti Computing is a full-stack quantum computing company building superconducting quantum processors and delivering access through Quantum Cloud Services (QCS). Developers program Rigetti QPUs in the Quil instruction language via the open-source pyQuil SDK, compile with quilc, and simulate locally with the Quantum Virtual Machine (QVM). The QCS HTTP API exposes REST-style operations for quantum processors, instruction set architectures, engagements, endpoints, reservations, groups, billing, and account management, secured with OAuth2 (Okta) JWT bearer tokens.
+
+## APIs
+
+- [Rigetti QCS API docs](https://docs.rigetti.com/qcs): Quantum Cloud Services HTTP API — quantum processors, ISAs, engagements, endpoints, reservations, groups, billing, account/viewer. Base URL https://api.qcs.rigetti.com
+- [QCS OpenAPI](https://raw.githubusercontent.com/api-evangelist/rigetti-computing/refs/heads/main/openapi/rigetti-computing-qcs-openapi-original.yml): OpenAPI 3.0.2, 52 operations, JWT bearer auth
+
+## SDKs & Packages
+
+- [pyquil (PyPI)](https://pypi.org/project/pyquil/): pip install pyquil — build/execute Quil on QVM and QPUs
+- [qcs-api-client (PyPI)](https://pypi.org/project/qcs-api-client/): pip install qcs-api-client — QCS HTTP API client
+- [qcs-sdk-python (PyPI)](https://pypi.org/project/qcs-sdk-python/): pip install qcs-sdk-python — Python bindings for the Rust QCS SDK
+- [quil (PyPI)](https://pypi.org/project/quil/): pip install quil — Quil parser/builder bindings
+- [qiskit-rigetti (PyPI)](https://pypi.org/project/qiskit-rigetti/): Qiskit provider for Rigetti hardware
+- [qcs (crates.io)](https://crates.io/crates/qcs): Rust SDK for QCS
+
+## Docs
+
+- [Developer portal (QCS)](https://qcs.rigetti.com/)
+- [Documentation](https://docs.rigetti.com/)
+- [pyQuil docs / getting started](https://pyquil-docs.rigetti.com/)
+- [GitHub org](https://github.com/rigetti)
+- [Get access / sign up](https://www.rigetti.com/get-quantum)
+- [Support (Zendesk)](https://rigetti.zendesk.com)
+
+## Artifacts
+
+- Authentication: authentication/rigetti-computing-authentication.yml
+- Conventions: conventions/rigetti-computing-conventions.yml
+- Error catalog: errors/rigetti-computing-problem-types.yml
+- Data model: data-model/rigetti-computing-data-model.yml
+- Lifecycle: lifecycle/rigetti-computing-lifecycle.yml
+- Agent skills: skills/_index.yml
