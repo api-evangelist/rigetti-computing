@@ -272,3 +272,9 @@ tools:
   method: PUT
   path: /v1/viewer/onboardingCompleted
   source_operation: openapi/rigetti-computing-qcs-openapi-original.yml#PutViewerUserOnboardingCompleted
+deployment:
+  mode: none
+  verified: derived
+  tools: 52
+  checked: '2026-08-12'
+  source: catalog MCP census
