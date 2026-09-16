@@ -1,17 +1,13 @@
 aid: rigetti-computing
 name: Rigetti Computing
-description: >-
-  Rigetti Computing is a full-stack quantum computing company that builds
-  superconducting quantum processors and delivers access to them through
-  Quantum Cloud Services (QCS). Developers program Rigetti quantum processing
-  units (QPUs) with the Quil quantum instruction language via the open-source
-  pyQuil SDK, compile with quilc, and simulate locally with the Quantum Virtual
-  Machine (QVM). The QCS HTTP API (api.qcs.rigetti.com) exposes REST-style
-  operations for quantum processors, instruction set architectures, engagements,
-  endpoints, reservations, groups, billing, and account management, secured with
-  OAuth2 (Okta) JWT bearer tokens. This profile was seeded as a VC-portfolio
-  lead and enriched by the API Evangelist pipeline from Rigetti's public QCS
-  OpenAPI, SDKs, and developer documentation.
+description: Rigetti Computing is a full-stack quantum computing company that builds superconducting quantum
+  processors and delivers access to them through Quantum Cloud Services (QCS). Developers program Rigetti
+  quantum processing units (QPUs) with the Quil quantum instruction language via the open-source pyQuil
+  SDK, compile with quilc, and simulate locally with the Quantum Virtual Machine (QVM). The QCS HTTP API
+  (api.qcs.rigetti.com) exposes REST-style operations for quantum processors, instruction set architectures,
+  engagements, endpoints, reservations, groups, billing, and account management, secured with OAuth2 (Okta)
+  JWT bearer tokens. This profile was seeded as a VC-portfolio lead and enriched by the API Evangelist
+  pipeline from Rigetti's public QCS OpenAPI, SDKs, and developer documentation.
 url: https://raw.githubusercontent.com/api-evangelist/rigetti-computing/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -48,7 +44,7 @@ accessModel:
   method: derived
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-09-16'
 x-enrichment:
   date: '2026-07-21'
   status: enriched
@@ -173,7 +169,7 @@ apis:
   - type: OpenAPI
     url: openapi/rigetti-computing-reservations-api-openapi.yml
 - aid: rigetti-computing:rigetti-computing-rigetti-qcs-api-api
-  name: Rigetti Computing Rigetti QCS API API
+  name: Rigetti Computing Rigetti QCS API
   description: The Rigetti QCS API API from Rigetti Computing — 2 operation(s) for rigetti qcs api.
   humanURL: https://docs.rigetti.com/qcs
   baseURL: https://api.qcs.rigetti.com
@@ -195,7 +191,10 @@ common:
   url: packages/rigetti-computing-packages.yml
 - type: X-MCPServerCandidate
   url: mcp/rigetti-computing-mcp.yml
-  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate
+    — a tool list derived from the published API contracts, not an existing server. The scorer already
+    read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type
+    surfaces with a server that does not exist.'
 - type: LLMsTxt
   url: llms/rigetti-computing-llms.txt
 - type: Overlay
