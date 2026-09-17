@@ -133,18 +133,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/rigetti-computing-engagements-api-openapi.yml
-- aid: rigetti-computing:rigetti-computing-healthcheck-api
-  name: Rigetti Computing Healthcheck API
-  description: The Healthcheck API from Rigetti Computing — 1 operation(s) for healthcheck.
-  humanURL: https://docs.rigetti.com/qcs
-  baseURL: https://api.qcs.rigetti.com
-  tags:
-  - Health Check
-  tags_raw:
-  - Healthcheck
-  properties:
-  - type: OpenAPI
-    url: openapi/rigetti-computing-healthcheck-api-openapi.yml
 - aid: rigetti-computing:rigetti-computing-quantumprocessors-api
   name: Rigetti Computing quantumProcessors API
   description: The Quantum Processor is the heart of the Rigetti services.
@@ -178,6 +166,16 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/rigetti-computing-rigetti-qcs-api-api-openapi.yml
+- aid: rigetti-computing:rigetti-computing-health-check-api
+  name: Rigetti Computing Health Check API
+  description: The Health Check API from Rigetti Computing — 1 operation(s) for health check.
+  humanURL: https://docs.rigetti.com/qcs
+  baseURL: https://api.qcs.rigetti.com
+  tags:
+  - Health Check
+  properties:
+  - type: OpenAPI
+    url: openapi/rigetti-computing-health-check-api-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/rigetti-computing-agentic-access.yml
