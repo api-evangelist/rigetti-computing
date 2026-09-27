@@ -76,7 +76,7 @@ maintainers:
   email: info@apis.io
 apis:
 - aid: rigetti-computing:rigetti-computing-account-api
-  name: Rigetti Computing account API
+  name: Rigetti Computing Account API
   description: The account API from Rigetti Computing — 22 operation(s) for account.
   humanURL: https://docs.rigetti.com/qcs
   baseURL: https://api.qcs.rigetti.com
@@ -88,7 +88,7 @@ apis:
   - type: OpenAPI
     url: openapi/rigetti-computing-account-api-openapi.yml
 - aid: rigetti-computing:rigetti-computing-authentication-api
-  name: Rigetti Computing authentication API
+  name: Rigetti Computing Authentication API
   description: The authentication API from Rigetti Computing — 4 operation(s) for authentication.
   humanURL: https://docs.rigetti.com/qcs
   baseURL: https://api.qcs.rigetti.com
@@ -100,7 +100,7 @@ apis:
   - type: OpenAPI
     url: openapi/rigetti-computing-authentication-api-openapi.yml
 - aid: rigetti-computing:rigetti-computing-clientapplications-api
-  name: Rigetti Computing clientApplications API
+  name: Rigetti Computing Client Applications API
   description: Check for the latest SDK versions.
   humanURL: https://docs.rigetti.com/qcs
   baseURL: https://api.qcs.rigetti.com
@@ -111,7 +111,7 @@ apis:
   - type: OpenAPI
     url: openapi/rigetti-computing-clientapplications-api-openapi.yml
 - aid: rigetti-computing:rigetti-computing-endpoints-api
-  name: Rigetti Computing endpoints API
+  name: Rigetti Computing Endpoints API
   description: The Endpoint is the means of access to a Quantum Processor.
   humanURL: https://docs.rigetti.com/qcs
   baseURL: https://api.qcs.rigetti.com
@@ -122,7 +122,7 @@ apis:
   - type: OpenAPI
     url: openapi/rigetti-computing-endpoints-api-openapi.yml
 - aid: rigetti-computing:rigetti-computing-engagements-api
-  name: Rigetti Computing engagements API
+  name: Rigetti Computing Engagements API
   description: The Engagement is the authorization mechanism for access to the Quantum Processor.
   humanURL: https://docs.rigetti.com/qcs
   baseURL: https://api.qcs.rigetti.com
@@ -134,7 +134,7 @@ apis:
   - type: OpenAPI
     url: openapi/rigetti-computing-engagements-api-openapi.yml
 - aid: rigetti-computing:rigetti-computing-quantumprocessors-api
-  name: Rigetti Computing quantumProcessors API
+  name: Rigetti Computing Quantum Processors API
   description: The Quantum Processor is the heart of the Rigetti services.
   humanURL: https://docs.rigetti.com/qcs
   baseURL: https://api.qcs.rigetti.com
@@ -145,7 +145,7 @@ apis:
   - type: OpenAPI
     url: openapi/rigetti-computing-quantumprocessors-api-openapi.yml
 - aid: rigetti-computing:rigetti-computing-reservations-api
-  name: Rigetti Computing reservations API
+  name: Rigetti Computing Reservations API
   description: Find existing time on a Rigetti QPU and reserve it.
   humanURL: https://docs.rigetti.com/qcs
   baseURL: https://api.qcs.rigetti.com

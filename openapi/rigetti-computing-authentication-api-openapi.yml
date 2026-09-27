@@ -129,16 +129,12 @@ paths:
       - Authentication
 components:
   schemas:
-    AuthResetPasswordWithTokenRequest:
-      description: Token may be requested with AuthEmailPasswordResetToken.
+    AuthEmailPasswordResetTokenRequest:
       properties:
-        newPassword:
-          type: string
-        token:
+        email:
           type: string
       required:
-      - token
-      - newPassword
+      - email
       type: object
     AuthResetPasswordRequest:
       properties:
@@ -150,12 +146,54 @@ components:
       - oldPassword
       - newPassword
       type: object
-    AuthEmailPasswordResetTokenRequest:
+    ValidationError:
+      properties:
+        in:
+          enum:
+          - header
+          - query
+          - path
+          - body
+          type: string
+        message:
+          title: Message
+          type: string
+        path:
+          items:
+            type: string
+          title: Path
+          type: array
+      required:
+      - in
+      - message
+      title: ValidationError
+      type: object
+    UserProfile:
       properties:
         email:
           type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        organization:
+          type: string
       required:
       - email
+      - firstName
+      - lastName
+      - organization
+      type: object
+    AuthResetPasswordWithTokenRequest:
+      description: Token may be requested with AuthEmailPasswordResetToken.
+      properties:
+        newPassword:
+          type: string
+        token:
+          type: string
+      required:
+      - token
+      - newPassword
       type: object
     Error:
       properties:
@@ -179,22 +217,6 @@ components:
       - requestId
       title: Error
       type: object
-    UserProfile:
-      properties:
-        email:
-          type: string
-        firstName:
-          type: string
-        lastName:
-          type: string
-        organization:
-          type: string
-      required:
-      - email
-      - firstName
-      - lastName
-      - organization
-      type: object
     User:
       properties:
         createdTime:
@@ -210,28 +232,6 @@ components:
       - id
       - idpId
       - createdTime
-      type: object
-    ValidationError:
-      properties:
-        in:
-          enum:
-          - header
-          - query
-          - path
-          - body
-          type: string
-        message:
-          title: Message
-          type: string
-        path:
-          items:
-            type: string
-          title: Path
-          type: array
-      required:
-      - in
-      - message
-      title: ValidationError
       type: object
   securitySchemes:
     JWTBearer:

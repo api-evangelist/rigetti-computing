@@ -107,39 +107,14 @@ components:
       - isUpdateRequired
       - message
       type: object
-    CheckClientApplicationRequest:
+    ListClientApplicationsResponse:
       properties:
-        name:
-          description: Name of component
-          type: string
-        version:
-          description: Semantic version of component.
-          type: string
-      required:
-      - name
-      - version
-      type: object
-    Error:
-      properties:
-        code:
-          title: Code
-          type: string
-        message:
-          title: Message
-          type: string
-        requestId:
-          title: Request ID
-          type: string
-        validationErrors:
+        clientApplications:
           items:
-            $ref: '#/components/schemas/ValidationError'
-          title: Validation Errors
+            $ref: '#/components/schemas/ClientApplication'
           type: array
       required:
-      - code
-      - message
-      - requestId
-      title: Error
+      - clientApplications
       type: object
     ChecksumDescription:
       properties:
@@ -163,15 +138,6 @@ components:
           type: string
       required:
       - url
-      type: object
-    ListClientApplicationsResponse:
-      properties:
-        clientApplications:
-          items:
-            $ref: '#/components/schemas/ClientApplication'
-          type: array
-      required:
-      - clientApplications
       type: object
     ValidationError:
       properties:
@@ -217,6 +183,40 @@ components:
       - latestVersion
       - name
       - supported
+      type: object
+    Error:
+      properties:
+        code:
+          title: Code
+          type: string
+        message:
+          title: Message
+          type: string
+        requestId:
+          title: Request ID
+          type: string
+        validationErrors:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          title: Validation Errors
+          type: array
+      required:
+      - code
+      - message
+      - requestId
+      title: Error
+      type: object
+    CheckClientApplicationRequest:
+      properties:
+        name:
+          description: Name of component
+          type: string
+        version:
+          description: Semantic version of component.
+          type: string
+      required:
+      - name
+      - version
       type: object
   securitySchemes:
     JWTBearer:

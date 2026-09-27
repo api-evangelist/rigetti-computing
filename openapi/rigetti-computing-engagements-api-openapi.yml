@@ -93,6 +93,40 @@ paths:
       - Engagements
 components:
   schemas:
+    CreateEngagementRequest:
+      properties:
+        accountId:
+          description: Either the client's user ID or the name of a group on behalf of which the client wishes to engage. This value will override any values set in the headers.
+          title: Account Id
+          type: string
+        accountType:
+          allOf:
+          - $ref: '#/components/schemas/AccountType'
+          description: Indicates whether the engagement request should be made for the user or on behalf of a group. This value will override any values set in the headers.
+          title: Account Type
+        endpointId:
+          description: Unique, opaque identifier for the endpoint
+          title: Endpoint ID
+          type: string
+        quantumProcessorId:
+          description: 'Public identifier for a quantum processor [example: Aspen-1]'
+          title: Quantum Processor ID
+          type: string
+        tags:
+          description: Tags recorded on QPU requests, which reporting services may later use for querying usage records.
+          items:
+            type: string
+          title: Tags
+          type: array
+      title: CreateEngagementRequest
+      type: object
+    AccountType:
+      description: 'There are two types of accounts within QCS: user (representing a single user in Okta) and group (representing one or more users in Okta).'
+      default: user
+      enum:
+      - group
+      - user
+      type: string
     EngagementWithCredentials:
       description: An engagement is the authorization of a user to execute work on a Quantum Processor Endpoint.
       properties:
@@ -147,35 +181,6 @@ components:
       - credentials
       title: EngagementWithCredentials
       type: object
-    Error:
-      properties:
-        code:
-          title: Code
-          type: string
-        message:
-          title: Message
-          type: string
-        requestId:
-          title: Request ID
-          type: string
-        validationErrors:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          title: Validation Errors
-          type: array
-      required:
-      - code
-      - message
-      - requestId
-      title: Error
-      type: object
-    AccountType:
-      description: 'There are two types of accounts within QCS: user (representing a single user in Okta) and group (representing one or more users in Okta).'
-      default: user
-      enum:
-      - group
-      - user
-      type: string
     EngagementCredentials:
       description: 'Credentials are the ZeroMQ CURVE Keys used to encrypt the connection with the Quantum Processor
 
@@ -218,32 +223,27 @@ components:
       - message
       title: ValidationError
       type: object
-    CreateEngagementRequest:
+    Error:
       properties:
-        accountId:
-          description: Either the client's user ID or the name of a group on behalf of which the client wishes to engage. This value will override any values set in the headers.
-          title: Account Id
+        code:
+          title: Code
           type: string
-        accountType:
-          allOf:
-          - $ref: '#/components/schemas/AccountType'
-          description: Indicates whether the engagement request should be made for the user or on behalf of a group. This value will override any values set in the headers.
-          title: Account Type
-        endpointId:
-          description: Unique, opaque identifier for the endpoint
-          title: Endpoint ID
+        message:
+          title: Message
           type: string
-        quantumProcessorId:
-          description: 'Public identifier for a quantum processor [example: Aspen-1]'
-          title: Quantum Processor ID
+        requestId:
+          title: Request ID
           type: string
-        tags:
-          description: Tags recorded on QPU requests, which reporting services may later use for querying usage records.
+        validationErrors:
           items:
-            type: string
-          title: Tags
+            $ref: '#/components/schemas/ValidationError'
+          title: Validation Errors
           type: array
-      title: CreateEngagementRequest
+      required:
+      - code
+      - message
+      - requestId
+      title: Error
       type: object
   securitySchemes:
     JWTBearer:
