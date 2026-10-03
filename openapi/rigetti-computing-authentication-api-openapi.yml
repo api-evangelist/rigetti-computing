@@ -129,12 +129,16 @@ paths:
       - Authentication
 components:
   schemas:
-    AuthEmailPasswordResetTokenRequest:
+    AuthResetPasswordWithTokenRequest:
+      description: Token may be requested with AuthEmailPasswordResetToken.
       properties:
-        email:
+        newPassword:
+          type: string
+        token:
           type: string
       required:
-      - email
+      - token
+      - newPassword
       type: object
     AuthResetPasswordRequest:
       properties:
@@ -145,6 +149,22 @@ components:
       required:
       - oldPassword
       - newPassword
+      type: object
+    UserProfile:
+      properties:
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        organization:
+          type: string
+      required:
+      - email
+      - firstName
+      - lastName
+      - organization
       type: object
     ValidationError:
       properties:
@@ -168,32 +188,12 @@ components:
       - message
       title: ValidationError
       type: object
-    UserProfile:
+    AuthEmailPasswordResetTokenRequest:
       properties:
         email:
           type: string
-        firstName:
-          type: string
-        lastName:
-          type: string
-        organization:
-          type: string
       required:
       - email
-      - firstName
-      - lastName
-      - organization
-      type: object
-    AuthResetPasswordWithTokenRequest:
-      description: Token may be requested with AuthEmailPasswordResetToken.
-      properties:
-        newPassword:
-          type: string
-        token:
-          type: string
-      required:
-      - token
-      - newPassword
       type: object
     Error:
       properties:
