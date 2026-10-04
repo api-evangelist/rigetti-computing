@@ -129,43 +129,6 @@ paths:
       - Authentication
 components:
   schemas:
-    AuthResetPasswordWithTokenRequest:
-      description: Token may be requested with AuthEmailPasswordResetToken.
-      properties:
-        newPassword:
-          type: string
-        token:
-          type: string
-      required:
-      - token
-      - newPassword
-      type: object
-    AuthResetPasswordRequest:
-      properties:
-        newPassword:
-          type: string
-        oldPassword:
-          type: string
-      required:
-      - oldPassword
-      - newPassword
-      type: object
-    UserProfile:
-      properties:
-        email:
-          type: string
-        firstName:
-          type: string
-        lastName:
-          type: string
-        organization:
-          type: string
-      required:
-      - email
-      - firstName
-      - lastName
-      - organization
-      type: object
     ValidationError:
       properties:
         in:
@@ -187,6 +150,59 @@ components:
       - in
       - message
       title: ValidationError
+      type: object
+    UserProfile:
+      properties:
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        organization:
+          type: string
+      required:
+      - email
+      - firstName
+      - lastName
+      - organization
+      type: object
+    AuthResetPasswordRequest:
+      properties:
+        newPassword:
+          type: string
+        oldPassword:
+          type: string
+      required:
+      - oldPassword
+      - newPassword
+      type: object
+    User:
+      properties:
+        createdTime:
+          format: date-time
+          type: string
+        id:
+          type: integer
+        idpId:
+          type: string
+        profile:
+          $ref: '#/components/schemas/UserProfile'
+      required:
+      - id
+      - idpId
+      - createdTime
+      type: object
+    AuthResetPasswordWithTokenRequest:
+      description: Token may be requested with AuthEmailPasswordResetToken.
+      properties:
+        newPassword:
+          type: string
+        token:
+          type: string
+      required:
+      - token
+      - newPassword
       type: object
     AuthEmailPasswordResetTokenRequest:
       properties:
@@ -216,22 +232,6 @@ components:
       - message
       - requestId
       title: Error
-      type: object
-    User:
-      properties:
-        createdTime:
-          format: date-time
-          type: string
-        id:
-          type: integer
-        idpId:
-          type: string
-        profile:
-          $ref: '#/components/schemas/UserProfile'
-      required:
-      - id
-      - idpId
-      - createdTime
       type: object
   securitySchemes:
     JWTBearer:

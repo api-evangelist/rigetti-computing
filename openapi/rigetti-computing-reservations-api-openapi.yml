@@ -378,118 +378,6 @@ paths:
       - Reservations
 components:
   schemas:
-    AccountType:
-      description: 'There are two types of accounts within QCS: user (representing a single user in Okta) and group (representing one or more users in Okta).'
-      default: user
-      enum:
-      - group
-      - user
-      type: string
-    AvailableReservation:
-      properties:
-        duration:
-          type: string
-        endTime:
-          format: date-time
-          type: string
-        price:
-          type: integer
-        quantumProcessorId:
-          type: string
-        startTime:
-          format: date-time
-          type: string
-      required:
-      - quantumProcessorId
-      - startTime
-      - endTime
-      - duration
-      - price
-      type: object
-    ValidationError:
-      properties:
-        in:
-          enum:
-          - header
-          - query
-          - path
-          - body
-          type: string
-        message:
-          title: Message
-          type: string
-        path:
-          items:
-            type: string
-          title: Path
-          type: array
-      required:
-      - in
-      - message
-      title: ValidationError
-      type: object
-    QuantumProcessorCalendar:
-      description: Details about calendars related to a quantum processor.
-      properties:
-        maintenanceICal:
-          description: This calendar's schedule contains maintenance events for the QPU, during which execution is not available.
-          type: string
-      type: object
-    CreateReservationRequest:
-      properties:
-        accountId:
-          $ref: '#/components/schemas/AccountId'
-        accountType:
-          $ref: '#/components/schemas/AccountType'
-        endTime:
-          format: date-time
-          type: string
-        notes:
-          type: string
-        quantumProcessorId:
-          type: string
-        startTime:
-          format: date-time
-          type: string
-      required:
-      - quantumProcessorId
-      - startTime
-      - endTime
-      type: object
-    ListReservationsResponse:
-      properties:
-        nextPageToken:
-          type: string
-        reservations:
-          items:
-            $ref: '#/components/schemas/Reservation'
-          type: array
-      required:
-      - reservations
-      - nextPageToken
-      type: object
-    Error:
-      properties:
-        code:
-          title: Code
-          type: string
-        message:
-          title: Message
-          type: string
-        requestId:
-          title: Request ID
-          type: string
-        validationErrors:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          title: Validation Errors
-          type: array
-      required:
-      - code
-      - message
-      - requestId
-      title: Error
-      type: object
     Reservation:
       properties:
         accountId:
@@ -541,20 +429,66 @@ components:
       - createdTime
       - price
       type: object
-    FindAvailableReservationsResponse:
+    CreateReservationRequest:
       properties:
-        availableReservations:
-          items:
-            $ref: '#/components/schemas/AvailableReservation'
-          type: array
-        nextPageToken:
+        accountId:
+          $ref: '#/components/schemas/AccountId'
+        accountType:
+          $ref: '#/components/schemas/AccountType'
+        endTime:
+          format: date-time
+          type: string
+        notes:
+          type: string
+        quantumProcessorId:
+          type: string
+        startTime:
+          format: date-time
           type: string
       required:
-      - availableReservations
+      - quantumProcessorId
+      - startTime
+      - endTime
+      type: object
+    Filter:
+      description: "A string conforming to a *limited* set of the filtering operations described in [Google AIP 160](https://google.aip.dev/160).\n\n* Expressions are always of the form `{field} {operator} {value}` and may be grouped with `()` and joined with `AND` or `OR`.\n* Fields are specific to the route in question, but are typically a subset of attributes of the requested resource.\n* Operators are limited to `=`, `>`, `>=`, `<`, `<=`, and `!=`.\n* Values may take the following forms:\n  * `true` or `false` for boolean fields\n  * a number\n  * a string (include surrounding `\"`s),\n  * a duration string (include surrounding `\"`s). Valid time units are \"ns\", \"us\" (or \"µs\"), \"ms\", \"s\", \"m\", \"h\".\n  * a date string (include surrounding `\"`s). Should be formatted [RFC3339 5.6](https://tools.ietf.org/html/rfc3339#section-5.6).\n\nFor example, `startTime >= \"2020-06-24T22:00:00.000Z\" OR (duration >= \"15m\" AND endTime < \"2020-06-24T22:00:00.000Z\")`.\n"
+      type: string
+    AvailableReservation:
+      properties:
+        duration:
+          type: string
+        endTime:
+          format: date-time
+          type: string
+        price:
+          type: integer
+        quantumProcessorId:
+          type: string
+        startTime:
+          format: date-time
+          type: string
+      required:
+      - quantumProcessorId
+      - startTime
+      - endTime
+      - duration
+      - price
       type: object
     AccountId:
       description: userId for `accountType` "user", group name for `accountType` "group".
       type: string
+    ListReservationsResponse:
+      properties:
+        nextPageToken:
+          type: string
+        reservations:
+          items:
+            $ref: '#/components/schemas/Reservation'
+          type: array
+      required:
+      - reservations
+      - nextPageToken
+      type: object
     Order:
       description: 'A string conforming to order specification described in [Google
 
@@ -574,10 +508,82 @@ components:
 
         '
       type: string
-    Filter:
-      description: "A string conforming to a *limited* set of the filtering operations described in [Google AIP 160](https://google.aip.dev/160).\n\n* Expressions are always of the form `{field} {operator} {value}` and may be grouped with `()` and joined with `AND` or `OR`.\n* Fields are specific to the route in question, but are typically a subset of attributes of the requested resource.\n* Operators are limited to `=`, `>`, `>=`, `<`, `<=`, and `!=`.\n* Values may take the following forms:\n  * `true` or `false` for boolean fields\n  * a number\n  * a string (include surrounding `\"`s),\n  * a duration string (include surrounding `\"`s). Valid time units are \"ns\", \"us\" (or \"µs\"), \"ms\", \"s\", \"m\", \"h\".\n  * a date string (include surrounding `\"`s). Should be formatted [RFC3339 5.6](https://tools.ietf.org/html/rfc3339#section-5.6).\n\nFor example, `startTime >= \"2020-06-24T22:00:00.000Z\" OR (duration >= \"15m\" AND endTime < \"2020-06-24T22:00:00.000Z\")`.\n"
+    AccountType:
+      description: 'There are two types of accounts within QCS: user (representing a single user in Okta) and group (representing one or more users in Okta).'
+      default: user
+      enum:
+      - group
+      - user
       type: string
+    ValidationError:
+      properties:
+        in:
+          enum:
+          - header
+          - query
+          - path
+          - body
+          type: string
+        message:
+          title: Message
+          type: string
+        path:
+          items:
+            type: string
+          title: Path
+          type: array
+      required:
+      - in
+      - message
+      title: ValidationError
+      type: object
+    QuantumProcessorCalendar:
+      description: Details about calendars related to a quantum processor.
+      properties:
+        maintenanceICal:
+          description: This calendar's schedule contains maintenance events for the QPU, during which execution is not available.
+          type: string
+      type: object
+    FindAvailableReservationsResponse:
+      properties:
+        availableReservations:
+          items:
+            $ref: '#/components/schemas/AvailableReservation'
+          type: array
+        nextPageToken:
+          type: string
+      required:
+      - availableReservations
+      type: object
+    Error:
+      properties:
+        code:
+          title: Code
+          type: string
+        message:
+          title: Message
+          type: string
+        requestId:
+          title: Request ID
+          type: string
+        validationErrors:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          title: Validation Errors
+          type: array
+      required:
+      - code
+      - message
+      - requestId
+      title: Error
+      type: object
   parameters:
+    pageSizeParam:
+      in: query
+      name: pageSize
+      required: false
+      schema:
+        type: integer
     accountTypeHeader:
       description: 'Used to specify the subject account''s type for a request
 
@@ -592,19 +598,6 @@ components:
       name: X-QCS-ACCOUNT-TYPE
       schema:
         $ref: '#/components/schemas/AccountType'
-    pageTokenParam:
-      description: An opaque token that can be appended to a request query to retrieve the next page of results. Empty if there are no more results to retrieve.
-      in: query
-      name: pageToken
-      required: false
-      schema:
-        type: string
-    pageSizeParam:
-      in: query
-      name: pageSize
-      required: false
-      schema:
-        type: integer
     showDeleted:
       description: If you wish to include deleted (or cancelled) resources in your response, include `showDeleted=true`.
       in: query
@@ -616,6 +609,11 @@ components:
         - 'true'
         - 'false'
         type: string
+    filterParam:
+      in: query
+      name: filter
+      schema:
+        $ref: '#/components/schemas/Filter'
     accountIdHeader:
       description: 'Used to specify a subject account ID for a request.
 
@@ -628,17 +626,19 @@ components:
       name: X-QCS-ACCOUNT-ID
       schema:
         $ref: '#/components/schemas/AccountId'
+    pageTokenParam:
+      description: An opaque token that can be appended to a request query to retrieve the next page of results. Empty if there are no more results to retrieve.
+      in: query
+      name: pageToken
+      required: false
+      schema:
+        type: string
     orderParam:
       in: query
       name: order
       required: false
       schema:
         $ref: '#/components/schemas/Order'
-    filterParam:
-      in: query
-      name: filter
-      schema:
-        $ref: '#/components/schemas/Filter'
   securitySchemes:
     JWTBearer:
       bearerFormat: JWT
